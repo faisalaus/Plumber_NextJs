@@ -1,7 +1,7 @@
 import { ThemeProvider } from "next-themes";
-import Navbar from "@/components/sections/Navbar";
-import TopBar from "@/components/TopBar";
-import Footer from "@/components/sections/Footer";
+import Navbar from "@/components/ui/Navbar";
+import TopBar from "@/components/ui/TopBar";
+import Footer from "@/components/ui/Footer";
 import AppointmentForm from "@/components/sections/AppointmentForm";
 import TestimonialSlider from "@/components/ui/Testimonial";
 import BlogSection from "@/components/sections/BlogSection";
