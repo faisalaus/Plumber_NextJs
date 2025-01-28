@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { Calendar, Truck, Wrench } from 'lucide-react';
-import Image from 'next/image';
+import { Calendar, Truck, Wrench } from "lucide-react";
+import Image from "next/image";
 
 export default function HeroSection() {
   const steps = [
     {
-      title: 'Book Online',
+      title: "Book Online",
       icon: <Calendar className="h-12 w-12 text-cyan-600" />,
     },
     {
-      title: 'We Arrive',
+      title: "We Arrive",
       icon: <Truck className="h-12 w-12 text-cyan-600" />,
     },
     {
-      title: 'Solve Problem',
+      title: "Solve Problem",
       icon: <Wrench className="h-12 w-12 text-cyan-600" />,
     },
   ];
@@ -29,7 +29,8 @@ export default function HeroSection() {
             Ready for <span className="text-teal-600">Help</span> You.
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
-            We are a certified company providing reliable plumbing services for you and your company.
+            We are a certified company providing reliable plumbing services for
+            you and your company.
           </p>
           <button className="bg-cyan-600 hover:bg-cyan-700 text-white py-3 px-6 rounded-full shadow-lg transition">
             Book Online
@@ -38,15 +39,14 @@ export default function HeroSection() {
 
         {/* Right Image */}
         <div className="relative max-w-lg mt-8 md:mt-0">
-        <Image
-  src="/images/prof_plumber.webp"
-  alt="Professional plumber"
-  width={500}
-  height={500}
-  priority
-  className="rounded-lg shadow-lg"
-/>
-
+          <Image
+            src="/images/prof_plumber.webp" // Correct path to the image in the public folder
+            alt="Professional plumber"
+            width={500}
+            height={500}
+            priority
+            className="rounded-lg shadow-lg"
+          />
         </div>
       </div>
 
@@ -59,7 +59,9 @@ export default function HeroSection() {
               className="flex flex-col items-center bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-md hover:scale-105 transform transition"
             >
               <div className="mb-4">{step.icon}</div>
-              <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">{step.title}</h3>
+              <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+                {step.title}
+              </h3>
             </div>
           ))}
         </div>

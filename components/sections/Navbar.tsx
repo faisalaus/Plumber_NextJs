@@ -1,10 +1,10 @@
-'use client'; // Mark as a client component
-import Link from 'next/link';
-import { useState } from 'react';
-import { Button } from '@/components/ui/button'; // Using shadcn/ui for the button
-import { Menu, X } from 'lucide-react'; // For the mobile menu icon and close icon
-import ModeToggle from '@/components/ModeToggle'; // Import the ModeToggle component
-import { useStickyNav } from '@/lib/hooks/useStickyNav'; // Import the sticky hook
+"use client"; // Mark as a client component
+import Link from "next/link";
+import { useState } from "react";
+import { Button } from "@/components/ui/button"; // Using shadcn/ui for the button
+import { Menu, X } from "lucide-react"; // For the mobile menu icon and close icon
+import ModeToggle from "@/components/sections/ModeToggle"; // Import the ModeToggle component
+import { useStickyNav } from "@/lib/hooks/useStickyNav"; // Import the sticky hook
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,30 +17,48 @@ export default function Navbar() {
   return (
     <nav
       className={`${
-        isSticky ? 'fixed top-0 left-0 right-0 shadow-lg' : ''
+        isSticky ? "fixed top-0 left-0 right-0 shadow-lg" : ""
       } z-50 bg-white dark:bg-gray-900 transition-all duration-300`}
     >
       <div className="container mx-auto flex items-center justify-between p-4">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-cyan-600 dark:text-teal-400">
+        <Link
+          href="/"
+          className="text-xl font-bold text-cyan-600 dark:text-teal-400"
+        >
           NHPS Services
         </Link>
 
         {/* Navigation Links (Desktop) */}
         <div className="hidden md:flex space-x-6">
-          <Link href="/" className="hover:text-teal-600 dark:hover:text-teal-400">
+          <Link
+            href="/"
+            className="hover:text-teal-600 dark:hover:text-teal-400"
+          >
             Home
           </Link>
-          <Link href="/about" className="hover:text-teal-600 dark:hover:text-teal-400">
+          <Link
+            href="/about"
+            className="hover:text-teal-600 dark:hover:text-teal-400"
+          >
             About
           </Link>
-          <Link href="/services" className="hover:text-teal-600 dark:hover:text-teal-400">
+          <Link
+            href="/services"
+            className="hover:text-teal-600 dark:hover:text-teal-400"
+          >
             Services
           </Link>
-          <Link href="/blog" className="hover:text-teal-600 dark:hover:text-teal-400">
+          <Link
+            href="/blog"
+            className="hover:text-teal-600 dark:hover:text-teal-400"
+          >
             Blog
           </Link>
-          <Link href="/contact" className="hover:text-teal-600 dark:hover:text-teal-400">
+          <Link
+            href="/contact"
+            className="hover:text-teal-600 dark:hover:text-teal-400"
+          >
             Contact
           </Link>
         </div>
@@ -60,7 +78,11 @@ export default function Navbar() {
             className="md:hidden flex items-center justify-center text-gray-800 dark:text-gray-200"
             onClick={toggleMobileMenu}
           >
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
       </div>

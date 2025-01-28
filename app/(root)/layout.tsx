@@ -1,10 +1,10 @@
 import { ThemeProvider } from "next-themes";
-import Navbar from "@/components/Navbar";
-import TopBar from "@/components/Topbar";
-import Footer from "@/components/Footer";
-import AppointmentForm from "@/components/AppointmentForm";
+import Navbar from "@/components/sections/Navbar";
+import TopBar from "@/components/TopBar";
+import Footer from "@/components/sections/Footer";
+import AppointmentForm from "@/components/sections/AppointmentForm";
 import TestimonialSlider from "@/components/ui/Testimonial";
-import BlogSection from "@/components/BlogSection";
+import BlogSection from "@/components/sections/BlogSection";
 
 export default function RootLayout({
   children,

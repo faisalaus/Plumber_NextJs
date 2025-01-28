@@ -1,44 +1,43 @@
-'use client';
-
+"use client";
 import {
   Card,
   CardHeader,
   CardTitle,
   CardDescription,
   CardContent,
-} from '@/components/ui/card';
-import Image from 'next/image';
+} from "@/components/ui/card";
+import Image from "next/image";
 
 const services = [
   {
-    title: 'Kitchen Plumbing',
-    description: 'Electronic typesetting remains unchanged.',
-    image: '/images/kitchen-plumbing.webp',
+    title: "Kitchen Plumbing",
+    description: "Electronic typesetting remains unchanged.",
+    image: "/images/kitchen-plumbing.webp",
   },
   {
-    title: 'Gas Line Services',
-    description: 'Electronic typesetting remains unchanged.',
-    image: '/images/gas-line-services.webp',
+    title: "Gas Line Services",
+    description: "Electronic typesetting remains unchanged.",
+    image: "/images/gas-line-services.webp",
   },
   {
-    title: 'Water Line Repair',
-    description: 'Electronic typesetting remains unchanged.',
-    image: '/images/water-line-repair.webp',
+    title: "Water Line Repair",
+    description: "Electronic typesetting remains unchanged.",
+    image: "/images/water-line-repair.webp",
   },
   {
-    title: 'Bathroom Plumbing',
-    description: 'Electronic typesetting remains unchanged.',
-    image: '/images/bathroom.jpg',
+    title: "Bathroom Plumbing",
+    description: "Electronic typesetting remains unchanged.",
+    image: "/images/bathroom.jpg",
   },
   {
-    title: 'Basement Plumbing',
-    description: 'Electronic typesetting remains unchanged.',
-    image: '/images/basement-plumbing.jpg',
+    title: "Basement Plumbing",
+    description: "Electronic typesetting remains unchanged.",
+    image: "/images/basement-plumbing.jpg",
   },
   {
-    title: 'Remodeling Service',
-    description: 'Electronic typesetting remains unchanged.',
-    image: '/images/remodeling-service.jpg',
+    title: "Remodeling Service",
+    description: "Electronic typesetting remains unchanged.",
+    image: "/images/remodeling-service.jpg",
   },
 ];
 

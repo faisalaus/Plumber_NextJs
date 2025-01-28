@@ -1,6 +1,6 @@
-import HeroSection from "@/components/HeroSection";
-import ServicesSection from "@/components/ServicesSection";
-import LatestProjects from "@/components/LatestProjects";
+import HeroSection from "@/components/sections/HeroSection";
+import ServicesSection from "@/components/sections/ServicesSection";
+import LatestProjects from "@/components/sections/LatestProjects";
 
 const HomePage = () => {
   return (
