@@ -23,7 +23,7 @@ const ModeToggle = () => {
 
   // Avoid rendering until the component is mounted
   if (!mounted) {
-    return null;
+    return <span aria-hidden="true" />;
   }
 
   return (

@@ -1,33 +1,46 @@
-'use client'; // Mark as client component
-import Link from "next/link";
-import { Button } from "@/components/ui/button"; // Using shadcn/ui for the button
-import { Menu } from "lucide-react"; // For the mobile menu icon
-import ModeToggle from "@/components/ModeToggle"; // Import the ModeToggle component
+'use client'; // Mark as a client component
+import Link from 'next/link';
+import { useState } from 'react';
+import { Button } from '@/components/ui/button'; // Using shadcn/ui for the button
+import { Menu, X } from 'lucide-react'; // For the mobile menu icon and close icon
+import ModeToggle from '@/components/ModeToggle'; // Import the ModeToggle component
+import { useStickyNav } from '@/lib/hooks/useStickyNav'; // Import the sticky hook
 
 export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isSticky = useStickyNav();
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen((prevState) => !prevState);
+  };
+
   return (
-    <nav className="fixed top-14 left-0 right-0 z-40 bg-white shadow-md dark:bg-gray-900">
+    <nav
+      className={`${
+        isSticky ? 'fixed top-0 left-0 right-0 shadow-lg' : ''
+      } z-50 bg-white dark:bg-gray-900 transition-all duration-300`}
+    >
       <div className="container mx-auto flex items-center justify-between p-4">
         {/* Logo */}
-        <Link href="/" className="text-xl font-bold text-blue-600 dark:text-blue-400">
-          Plumco
+        <Link href="/" className="text-xl font-bold text-cyan-600 dark:text-teal-400">
+          NHPS Services
         </Link>
 
         {/* Navigation Links (Desktop) */}
         <div className="hidden md:flex space-x-6">
-          <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400">
+          <Link href="/" className="hover:text-teal-600 dark:hover:text-teal-400">
             Home
           </Link>
-          <Link href="/about" className="hover:text-blue-600 dark:hover:text-blue-400">
+          <Link href="/about" className="hover:text-teal-600 dark:hover:text-teal-400">
             About
           </Link>
-          <Link href="/services" className="hover:text-blue-600 dark:hover:text-blue-400">
+          <Link href="/services" className="hover:text-teal-600 dark:hover:text-teal-400">
             Services
           </Link>
-          <Link href="/blog" className="hover:text-blue-600 dark:hover:text-blue-400">
+          <Link href="/blog" className="hover:text-teal-600 dark:hover:text-teal-400">
             Blog
           </Link>
-          <Link href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400">
+          <Link href="/contact" className="hover:text-teal-600 dark:hover:text-teal-400">
             Contact
           </Link>
         </div>
@@ -35,7 +48,7 @@ export default function Navbar() {
         {/* Right Side: Call-to-Action Button and Theme Toggle */}
         <div className="flex items-center space-x-4">
           {/* Call-to-Action Button (Desktop) */}
-          <Button className="hidden md:block bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800">
+          <Button className="hidden md:block bg-cyan-600 hover:bg-cyan-700 dark:bg-cyan-700 dark:hover:bg-cyan-800">
             Get a Quote
           </Button>
 
@@ -43,33 +56,63 @@ export default function Navbar() {
           <ModeToggle />
 
           {/* Mobile Menu Icon */}
-          <Menu className="md:hidden h-6 w-6 cursor-pointer" />
+          <button
+            className="md:hidden flex items-center justify-center text-gray-800 dark:text-gray-200"
+            onClick={toggleMobileMenu}
+          >
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
       </div>
 
       {/* Mobile Menu (Dropdown) */}
-      <div className="md:hidden bg-white dark:bg-gray-900 shadow-lg">
-        <div className="flex flex-col space-y-4 p-4">
-          <Link href="/" className="hover:text-blue-600 dark:hover:text-blue-400">
-            Home
-          </Link>
-          <Link href="/about" className="hover:text-blue-600 dark:hover:text-blue-400">
-            About
-          </Link>
-          <Link href="/services" className="hover:text-blue-600 dark:hover:text-blue-400">
-            Services
-          </Link>
-          <Link href="/blog" className="hover:text-blue-600 dark:hover:text-blue-400">
-            Blog
-          </Link>
-          <Link href="/contact" className="hover:text-blue-600 dark:hover:text-blue-400">
-            Contact
-          </Link>
-          <Button className="bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800">
-            Get a Quote
-          </Button>
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-white dark:bg-gray-900 shadow-lg">
+          <div className="flex flex-col space-y-4 p-4">
+            <Link
+              href="/"
+              onClick={() => setIsMobileMenuOpen(false)} // Close menu on click
+              className="hover:text-teal-600 dark:hover:text-teal-400"
+            >
+              Home
+            </Link>
+            <Link
+              href="/about"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="hover:text-teal-600 dark:hover:text-teal-400"
+            >
+              About
+            </Link>
+            <Link
+              href="/services"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="hover:text-teal-600 dark:hover:text-teal-400"
+            >
+              Services
+            </Link>
+            <Link
+              href="/blog"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="hover:text-teal-600 dark:hover:text-teal-400"
+            >
+              Blog
+            </Link>
+            <Link
+              href="/contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="hover:text-teal-600 dark:hover:text-teal-400"
+            >
+              Contact
+            </Link>
+            <Button
+              className="bg-teal-600 hover:bg-teal-700 dark:bg-teal-700 dark:hover:bg-teal-800"
+              onClick={() => setIsMobileMenuOpen(false)} // Close menu on click
+            >
+              Get a Quote
+            </Button>
+          </div>
         </div>
-      </div>
+      )}
     </nav>
   );
 }

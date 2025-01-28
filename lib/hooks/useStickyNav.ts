@@ -4,7 +4,6 @@ export function useStickyNav() {
   const [isSticky, setIsSticky] = useState(false);
 
   useEffect(() => {
-    // Ensure window is defined (client-side only)
     if (typeof window !== "undefined") {
       const handleScroll = () => {
         if (window.scrollY > 100) {

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "@/lib/fontAwesome"; // Adjust the path if necessary
 import "@/assets/styles/globals.css";
 import { APP_NAME, APP_DESCRIPTION } from "@/lib/contants/index";
 
@@ -16,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressContentEditableWarning>
+    <html lang="en" className="light" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
         {children}
       </body>

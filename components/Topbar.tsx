@@ -1,20 +1,32 @@
-'use client'; // Mark as client component
-export default function TopBar() {
-    return (
-      <div className="bg-blue-600 text-white py-3 z-50 relative">
-        <div className="container mx-auto flex justify-between items-center text-base px-4">
-          {/* Phone Number */}
-          <div className="flex items-center space-x-2">
-            <span>📞</span>
-            <span>Call Us: +123 456 7890</span>
+'use client';
+interface TopBarProps {
+  phoneNumber?: string;
+  operatingHours?: string;
+}
+
+export default function TopBar({
+  phoneNumber = '+0453 453 564',
+  operatingHours = 'Mon - Sat: 9:00 - 18:00',
+}: TopBarProps) {
+  return (
+    <div className="bg-teal-900 text-white h-12 flex items-center z-50 relative">
+      <div className="container mx-auto flex flex-col md:flex-row md:justify-between items-center px-4 space-y-2 md:space-y-0">
+        {/* Phone Number */}
+        {phoneNumber && (
+          <div className="flex items-center space-x-2" aria-label="Contact Information">
+            <span aria-hidden="true">📞</span>
+            <span className="font-medium">{phoneNumber}</span>
           </div>
-  
-          {/* Operating Hours */}
-          <div className="flex items-center space-x-2">
-            <span>🕒</span>
-            <span>Mon - Sat: 9:00 - 18:00</span>
+        )}
+
+        {/* Operating Hours */}
+        {operatingHours && (
+          <div className="flex items-center space-x-2" aria-label="Operating Hours">
+            <span aria-hidden="true">🕒</span>
+            <span className="font-medium">{operatingHours}</span>
           </div>
-        </div>
+        )}
       </div>
-    );
-  }
+    </div>
+  );
+}
