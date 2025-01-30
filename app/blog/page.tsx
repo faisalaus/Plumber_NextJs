@@ -1,5 +1,4 @@
 "use client"; // Client component for fetching blogs dynamically
-
 import { useEffect, useState } from "react";
 import { getBlogPosts } from "@/lib/api";
 import BlogBanner from "@/components/sections/BlogBanner";

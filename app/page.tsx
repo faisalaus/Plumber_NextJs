@@ -1,10 +1,19 @@
+import HeroSection from "@/components/sections/HeroSection";
+import ServicesSection from "@/components/sections/ServicesSection";
+import BlogSection from "@/components/sections/BlogSection";
+import LatestProjects from "@/components/sections/LatestProjects";
+import AppointmentForm from "@/components/sections/AppointmentForm";
+import TestimonialSlider from "@/components/ui/Testimonial";
+
 export default function Home() {
   return (
     <main className="container mx-auto px-4 py-10">
-      <h1 className="text-4xl font-bold">Welcome to NHPS Services</h1>
-      <p className="mt-4 text-lg text-gray-600">
-        Your trusted plumbing service provider in Melbourne.
-      </p>
+      <HeroSection />
+      <ServicesSection />
+      <LatestProjects />
+      <BlogSection />
+      <AppointmentForm />
+      <TestimonialSlider />
     </main>
   );
 }

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "@/lib/fontAwesome"; // Adjust the path if necessary
+import "@/lib/fontAwesome";
 import "@/assets/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import Navbar from "@/components/ui/Navbar";
 import TopBar from "@/components/ui/TopBar";
+import BackToTop from "@/components/ui/BackToTop";
 import Footer from "@/components/ui/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,7 +26,8 @@ export default function RootLayout({
         <ThemeProvider attribute="class" enableSystem defaultTheme="light">
           <TopBar />
           <Navbar />
-          <main className="mt-[96px] flex-1 wrapper">{children}</main>
+          <main className="flex-1">{children}</main>
+          <BackToTop />
           <Footer />
         </ThemeProvider>
       </body>
