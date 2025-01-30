@@ -6,7 +6,7 @@ const AboutBanner = () => {
       <Image
         src="/images/about-banner.webp" // Replace with actual image
         alt="About Us Banner"
-        layout="fill"
+        fill
         objectFit="cover"
         className="absolute inset-0"
       />
