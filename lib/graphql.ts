@@ -14,7 +14,7 @@ const client = new GraphQLClient(WP_GRAPHQL_ENDPOINT);
 
 export const fetchGraphQL = async <T>(
   query: string,
-  variables?: Record<string, any>
+  variables?: Record<string, unknown>
 ): Promise<T> => {
   try {
     console.log("🟢 Sending GraphQL Request with Variables:", variables); // Debugging log

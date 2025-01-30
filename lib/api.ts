@@ -21,7 +21,7 @@ export const getBlogPostBySlug = async (
   try {
     const data: { postBy: BlogPost } = await fetchGraphQL(GET_SINGLE_POST, {
       slug,
-    });
+    }); // ✅ Passing slug correctly
     return data.postBy;
   } catch (error) {
     console.error(`❌ Error fetching post "${slug}":`, error);
