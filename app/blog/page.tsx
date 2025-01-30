@@ -1,4 +1,4 @@
-"use client"; // Client component for fetching blogs dynamically
+"use client";
 import { useEffect, useState } from "react";
 import { getBlogPosts } from "@/lib/api";
 import BlogBanner from "@/components/sections/BlogBanner";
@@ -29,90 +29,45 @@ export default function BlogPage() {
           Latest Blog Posts
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Blog Posts Section */}
-          <div className="md:col-span-2">
-            {posts.length > 0 ? (
-              posts.map((post) => (
-                <div
-                  key={post.id}
-                  className="border rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow"
-                >
-                  {post.featuredImage && (
-                    <div className="relative w-full h-64">
-                      <Image
-                        src={post.featuredImage.node.sourceUrl}
-                        alt={post.featuredImage.node.altText || post.title}
-                        fill
-                        className="rounded-lg object-cover"
-                        priority
-                      />
-                    </div>
-                  )}
-                  <h2 className="text-2xl font-semibold mt-4">
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="hover:underline"
-                    >
-                      {post.title}
-                    </Link>
-                  </h2>
+          {posts.length > 0 ? (
+            posts.map((post) => (
+              <div
+                key={post.id}
+                className="border rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow"
+              >
+                {post.featuredImage && (
+                  <div className="relative w-full h-64">
+                    <Image
+                      src={post.featuredImage.node.sourceUrl}
+                      alt={post.featuredImage.node.altText || post.title}
+                      fill
+                      className="rounded-lg object-cover"
+                      priority
+                    />
+                  </div>
+                )}
+                <h2 className="text-2xl font-semibold mt-4">
+                  <Link href={`/blog/${post.slug}`} className="hover:underline">
+                    {post.title}
+                  </Link>
+                </h2>
+                {post.excerpt && ( // ✅ Fix: Ensure excerpt exists before rendering
                   <p
                     className="text-gray-600 mt-2"
                     dangerouslySetInnerHTML={{ __html: post.excerpt }}
                   />
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="text-teal-600 hover:underline"
-                  >
-                    Read More →
-                  </Link>
-                </div>
-              ))
-            ) : (
-              <p>No blog posts found.</p>
-            )}
-          </div>
-
-          {/* Sidebar (Categories & Search) */}
-          <div>
-            <h2 className="text-2xl font-bold mb-4">Categories</h2>
-            <ul className="space-y-2">
-              <li>
+                )}
                 <Link
-                  href="/category/kitchen-plumbing"
+                  href={`/blog/${post.slug}`}
                   className="text-teal-600 hover:underline"
                 >
-                  Kitchen Plumbing
+                  Read More →
                 </Link>
-              </li>
-              <li>
-                <Link
-                  href="/category/gas-line-services"
-                  className="text-teal-600 hover:underline"
-                >
-                  Gas Line Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/category/water-line-repair"
-                  className="text-teal-600 hover:underline"
-                >
-                  Water Line Repair
-                </Link>
-              </li>
-            </ul>
-            <div className="mt-6">
-              <input
-                type="text"
-                placeholder="Search blog..."
-                className="w-full p-2 border rounded-md"
-              />
-              <button className="mt-2 w-full bg-teal-600 text-white p-2 rounded-md hover:bg-teal-700">
-                Search
-              </button>
-            </div>
-          </div>
+              </div>
+            ))
+          ) : (
+            <p>No blog posts found.</p>
+          )}
         </div>
       </div>
     </>

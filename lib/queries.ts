@@ -7,6 +7,8 @@ export const GET_BLOG_POSTS = `
         title
         slug
         excerpt
+        content
+        date
         featuredImage {
           node {
             sourceUrl
