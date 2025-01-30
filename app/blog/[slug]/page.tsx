@@ -7,8 +7,7 @@ export default async function BlogPostPage({
 }: {
   params: { slug: string };
 }) {
-  // ✅ FIX: Removed `await` since `params.slug` is not a Promise
-  const decodedSlug = decodeURIComponent(params.slug);
+  const decodedSlug = decodeURIComponent(params.slug); // ✅ Fix: Removed `await`
   const post: BlogPost | null = await getBlogPostBySlug(decodedSlug);
 
   if (!post) {
@@ -20,13 +19,12 @@ export default async function BlogPostPage({
       {/* Blog Title and Date */}
       <h1 className="text-4xl font-bold text-gray-900 mb-2">{post.title}</h1>
       <p className="text-gray-600 mb-6">
-        📅{" "}
-        {post.date ? new Date(post.date).toLocaleDateString() : "Unknown Date"}
+        📅 {new Date(post.date).toLocaleDateString()}
       </p>
 
-      {/* Featured Image (With Fixed Aspect Ratio) */}
-      {post.featuredImage && post.featuredImage.node.sourceUrl && (
-        <div className="relative w-full h-[400px] overflow-hidden rounded-lg shadow-lg">
+      {/* Featured Image */}
+      {post.featuredImage && (
+        <div className="relative w-full h-96 overflow-hidden rounded-lg shadow-lg">
           <Image
             src={post.featuredImage.node.sourceUrl}
             alt={post.featuredImage.node.altText || post.title}
@@ -39,12 +37,8 @@ export default async function BlogPostPage({
       )}
 
       {/* Blog Content */}
-      <div className="prose max-w-3xl mx-auto leading-7 text-gray-700 mt-8">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: post.content ?? "<p>No content available.</p>",
-          }}
-        />
+      <div className="prose max-w-3xl mx-auto leading-7 text-gray-700">
+        <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </div>
     </div>
   );
