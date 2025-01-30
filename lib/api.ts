@@ -15,17 +15,13 @@ export const getBlogPosts = async (): Promise<BlogPost[]> => {
   }
 };
 
-// Function to fetch a single blog post by slug
 export const getBlogPostBySlug = async (
   slug: string
 ): Promise<BlogPost | null> => {
   try {
-    const variables = { slug }; // ✅ Ensure slug is passed correctly
-    const data: { postBy: BlogPost } = await fetchGraphQL(
-      GET_SINGLE_POST,
-      variables
-    );
-
+    const data: { postBy: BlogPost } = await fetchGraphQL(GET_SINGLE_POST, {
+      slug,
+    });
     return data.postBy;
   } catch (error) {
     console.error(`❌ Error fetching post "${slug}":`, error);

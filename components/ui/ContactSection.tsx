@@ -33,9 +33,7 @@ const ContactSection = () => {
             Email Us
           </h3>
           <p className="text-gray-600 dark:text-gray-400">info@nhps.com.au</p>
-          <p className="text-gray-600 dark:text-gray-400">info@nhps.com.au</p>
         </div>
-
         {/* Phone */}
         <div className="p-6 shadow-lg rounded-lg bg-gray-100 dark:bg-gray-800">
           <FontAwesomeIcon
@@ -45,7 +43,6 @@ const ContactSection = () => {
           <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
             Call Now
           </h3>
-          <p className="text-gray-600 dark:text-gray-400">0433 465 522</p>
           <p className="text-gray-600 dark:text-gray-400">0415 316 044</p>
         </div>
       </div>

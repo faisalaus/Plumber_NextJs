@@ -41,7 +41,7 @@ const BlogSection = () => {
         </h2>
         <p className="text-gray-600 mb-8">
           Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. has been the industry's standard dummy text ever since the
+          industry. has been the industrys standard dummy text ever since the
           1500s.
         </p>
 
