@@ -24,8 +24,8 @@ export const GET_SINGLE_POST = `
       id
       title
       content
-      date  
       slug
+      date
       featuredImage {
         node {
           sourceUrl
