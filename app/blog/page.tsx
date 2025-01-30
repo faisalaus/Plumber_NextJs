@@ -1,4 +1,4 @@
-"use client"; // Ensure it's a client component
+"use client"; // Client Component
 
 import { useEffect, useState } from "react";
 import TopBar from "@/components/ui/TopBar";
@@ -33,67 +33,64 @@ export default function BlogPage() {
 
       {/* Blog Page Wrapper */}
       <div className="container mx-auto px-4 py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Blog Posts Section */}
-          <div className="md:col-span-2">
-            <h1 className="text-4xl font-bold mb-6">Latest Blog Posts</h1>
-            <div className="grid gap-8">
-              {posts.length > 0 ? (
-                posts.map((post) => (
-                  <div
-                    key={post.id}
-                    className="border rounded-lg p-5 shadow-md"
-                  >
-                    {/* Featured Image (Fixed for Next.js 15) */}
-                    {post.featuredImage && (
-                      <div className="relative w-full h-52">
-                        <Image
-                          src={post.featuredImage.node.sourceUrl}
-                          alt={post.featuredImage.node.altText || post.title}
-                          fill
-                          className="rounded-md object-cover"
-                          priority
-                        />
-                      </div>
-                    )}
+        <h1 className="text-4xl font-bold mb-8 text-center">
+          Latest Blog Posts
+        </h1>
 
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Blog Posts Section */}
+          <div className="md:col-span-2 space-y-8">
+            {posts.length > 0 ? (
+              posts.map((post) => (
+                <div
+                  key={post.id}
+                  className="bg-white border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
+                  {post.featuredImage && (
+                    <div className="relative w-full h-64 overflow-hidden rounded-t-lg">
+                      <Image
+                        src={post.featuredImage.node.sourceUrl}
+                        alt={post.featuredImage.node.altText || post.title}
+                        fill
+                        className="object-cover hover:scale-105 transition-transform duration-300"
+                        priority
+                      />
+                    </div>
+                  )}
+
+                  <div className="p-6">
                     {/* Blog Title */}
-                    <h2 className="text-2xl font-semibold mt-4">
-                      <Link
-                        href={`/blog/${encodeURIComponent(post.slug)}`} // ✅ Fix Special Characters in URL
-                        className="hover:underline"
-                      >
+                    <h2 className="text-2xl font-semibold text-gray-900 hover:text-teal-600 transition-colors duration-300">
+                      <Link href={`/blog/${encodeURIComponent(post.slug)}`}>
                         {post.title}
                       </Link>
                     </h2>
 
                     {/* Blog Excerpt */}
-                    <p className="text-gray-600 mt-2">
+                    <p className="text-gray-600 mt-3 line-clamp-3">
                       <span
                         dangerouslySetInnerHTML={{ __html: post.excerpt }}
                       />
                     </p>
 
-                    {/* Read More Link */}
+                    {/* Read More Button */}
                     <Link
                       href={`/blog/${encodeURIComponent(post.slug)}`}
-                      className="text-teal-600 hover:underline"
+                      className="inline-block mt-4 px-5 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition duration-300"
                     >
                       Read More →
                     </Link>
                   </div>
-                ))
-              ) : (
-                <p>No blog posts found.</p>
-              )}
-            </div>
+                </div>
+              ))
+            ) : (
+              <p className="text-center text-gray-500">No blog posts found.</p>
+            )}
           </div>
 
           {/* Sidebar (Categories & Search) */}
           <div>
             <h2 className="text-2xl font-bold mb-4">Categories</h2>
-
-            {/* Dummy categories - Later we fetch from WordPress */}
             <ul className="space-y-2">
               <li>
                 <Link
@@ -126,9 +123,9 @@ export default function BlogPage() {
               <input
                 type="text"
                 placeholder="Search blog..."
-                className="w-full p-2 border rounded-md"
+                className="w-full p-3 border rounded-md focus:ring-2 focus:ring-teal-500 outline-none"
               />
-              <button className="mt-2 w-full bg-teal-600 text-white p-2 rounded-md hover:bg-teal-700">
+              <button className="mt-2 w-full bg-teal-600 text-white p-3 rounded-md hover:bg-teal-700 transition duration-300">
                 Search
               </button>
             </div>
