@@ -1,11 +1,8 @@
-"use client"; // Client Component
+"use client"; // Client component for fetching blogs dynamically
 
 import { useEffect, useState } from "react";
-import TopBar from "@/components/ui/TopBar";
-import Navbar from "@/components/ui/Navbar";
-import Footer from "@/components/ui/Footer";
-import AboutBanner from "@/components/sections/AboutBanner";
 import { getBlogPosts } from "@/lib/api";
+import BlogBanner from "@/components/sections/BlogBanner";
 import { BlogPost } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,64 +24,53 @@ export default function BlogPage() {
 
   return (
     <>
-      <TopBar />
-      <Navbar />
-      <AboutBanner />
-
-      {/* Blog Page Wrapper */}
+      <BlogBanner />
       <div className="container mx-auto px-4 py-10">
-        <h1 className="text-4xl font-bold mb-8 text-center">
+        <h1 className="text-4xl font-bold text-center mb-10">
           Latest Blog Posts
         </h1>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {/* Blog Posts Section */}
-          <div className="md:col-span-2 space-y-8">
+          <div className="md:col-span-2">
             {posts.length > 0 ? (
               posts.map((post) => (
                 <div
                   key={post.id}
-                  className="bg-white border rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                  className="border rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow"
                 >
                   {post.featuredImage && (
-                    <div className="relative w-full h-64 overflow-hidden rounded-t-lg">
+                    <div className="relative w-full h-64">
                       <Image
                         src={post.featuredImage.node.sourceUrl}
                         alt={post.featuredImage.node.altText || post.title}
                         fill
-                        className="object-cover hover:scale-105 transition-transform duration-300"
+                        className="rounded-lg object-cover"
                         priority
                       />
                     </div>
                   )}
-
-                  <div className="p-6">
-                    {/* Blog Title */}
-                    <h2 className="text-2xl font-semibold text-gray-900 hover:text-teal-600 transition-colors duration-300">
-                      <Link href={`/blog/${encodeURIComponent(post.slug)}`}>
-                        {post.title}
-                      </Link>
-                    </h2>
-
-                    {/* Blog Excerpt */}
-                    <p className="text-gray-600 mt-3 line-clamp-3">
-                      <span
-                        dangerouslySetInnerHTML={{ __html: post.excerpt }}
-                      />
-                    </p>
-
-                    {/* Read More Button */}
+                  <h2 className="text-2xl font-semibold mt-4">
                     <Link
-                      href={`/blog/${encodeURIComponent(post.slug)}`}
-                      className="inline-block mt-4 px-5 py-2 bg-teal-600 text-white rounded-md hover:bg-teal-700 transition duration-300"
+                      href={`/blog/${post.slug}`}
+                      className="hover:underline"
                     >
-                      Read More →
+                      {post.title}
                     </Link>
-                  </div>
+                  </h2>
+                  <p
+                    className="text-gray-600 mt-2"
+                    dangerouslySetInnerHTML={{ __html: post.excerpt }}
+                  />
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="text-teal-600 hover:underline"
+                  >
+                    Read More →
+                  </Link>
                 </div>
               ))
             ) : (
-              <p className="text-center text-gray-500">No blog posts found.</p>
+              <p>No blog posts found.</p>
             )}
           </div>
 
@@ -117,23 +103,19 @@ export default function BlogPage() {
                 </Link>
               </li>
             </ul>
-
-            {/* Search Box */}
             <div className="mt-6">
               <input
                 type="text"
                 placeholder="Search blog..."
-                className="w-full p-3 border rounded-md focus:ring-2 focus:ring-teal-500 outline-none"
+                className="w-full p-2 border rounded-md"
               />
-              <button className="mt-2 w-full bg-teal-600 text-white p-3 rounded-md hover:bg-teal-700 transition duration-300">
+              <button className="mt-2 w-full bg-teal-600 text-white p-2 rounded-md hover:bg-teal-700">
                 Search
               </button>
             </div>
           </div>
         </div>
       </div>
-
-      <Footer />
     </>
   );
 }

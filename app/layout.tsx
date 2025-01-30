@@ -2,13 +2,16 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/lib/fontAwesome"; // Adjust the path if necessary
 import "@/assets/styles/globals.css";
-import { APP_NAME, APP_DESCRIPTION } from "@/lib/contants/index";
+import { ThemeProvider } from "next-themes";
+import Navbar from "@/components/ui/Navbar";
+import TopBar from "@/components/ui/TopBar";
+import Footer from "@/components/ui/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: `${APP_NAME}`,
-  description: `${APP_DESCRIPTION}`,
+  title: "NHPS Services",
+  description: "Your trusted plumbing service provider in Melbourne",
 };
 
 export default function RootLayout({
@@ -17,9 +20,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
-        {children}
+        <ThemeProvider attribute="class" enableSystem defaultTheme="light">
+          <TopBar />
+          <Navbar />
+          <main className="mt-[96px] flex-1 wrapper">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
