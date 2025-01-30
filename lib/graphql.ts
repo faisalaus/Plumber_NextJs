@@ -12,10 +12,13 @@ if (!WP_GRAPHQL_ENDPOINT) {
 // Initialize GraphQL client
 const client = new GraphQLClient(WP_GRAPHQL_ENDPOINT);
 
-export const fetchGraphQL = async <T>(query: string): Promise<T> => {
+export const fetchGraphQL = async <T>(
+  query: string,
+  variables?: Record<string, any>
+): Promise<T> => {
   try {
-    console.log("🟢 Sending GraphQL Request:", query); // Debugging log
-    return await client.request<T>(query);
+    console.log("🟢 Sending GraphQL Request with Variables:", variables); // Debugging log
+    return await client.request<T>(query, variables); // ✅ Ensure variables are passed
   } catch (error) {
     console.error("❌ GraphQL request failed:", error);
     throw new Error("❌ GraphQL request failed");

@@ -14,23 +14,31 @@ const AboutContent = () => {
             className="rounded-lg shadow-md"
           />
         </div>
-
-        {/* Right Text */}
         <div className="w-full md:w-1/2">
           <h2 className="text-3xl font-bold text-gray-800">
             Over 25+ Years Experience in Plumbing Service
           </h2>
           <p className="text-gray-600 mt-4">
-            There are many variations of passages of Lorem Ipsum available, but
-            the majority have suffered alteration in some form, by injected
-            humour or randomized words.
+            Northern Home Plumbing Services is a reliable and experienced
+            plumbing company providing top-notch services in the Northern
+            Melbourne area. We specialize in plumbing services for new houses,
+            multi-unit developments, and gas water installations, offering
+            comprehensive solutions for both builders and homeowners.
           </p>
           <p className="text-gray-600 mt-4">
-            Lorem Ipsum is not simply random text. It has roots in a piece of
-            classical Latin literature from 45 BC, making it over 2000 years
-            old.
+            With a focus on underground plumbing, our team is equipped with the
+            expertise and experience to handle any plumbing project, from small
+            repairs to large-scale installations. We take pride in being a
+            one-stop-shop for new house builders and homeowners, offering
+            complete project management from start to finish.
           </p>
-          <h3 className="text-lg font-semibold mt-6">Muhammad Sirf</h3>
+          <p className="text-gray-600 mt-4">
+            Our services range from initial planning and design to final
+            installation and testing. We are committed to delivering
+            high-quality workmanship and exceptional customer service. With our
+            expertise and dedication to quality, Northern Home Plumbing Services
+            is a top choice for plumbing services in the industry.
+          </p>
         </div>
       </div>
     </section>

@@ -19,7 +19,7 @@ const ContactSection = () => {
             Address
           </h3>
           <p className="text-gray-600 dark:text-gray-400">
-            7 Green Lake Street, Crawfordsville, IN 47933
+            North Melbourne Australia
           </p>
         </div>
 
@@ -32,8 +32,8 @@ const ContactSection = () => {
           <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
             Email Us
           </h3>
-          <p className="text-gray-600 dark:text-gray-400">Plumco@gmail.com</p>
-          <p className="text-gray-600 dark:text-gray-400">helloyou@gmail.com</p>
+          <p className="text-gray-600 dark:text-gray-400">info@nhps.com.au</p>
+          <p className="text-gray-600 dark:text-gray-400">info@nhps.com.au</p>
         </div>
 
         {/* Phone */}
@@ -45,8 +45,8 @@ const ContactSection = () => {
           <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
             Call Now
           </h3>
-          <p className="text-gray-600 dark:text-gray-400">+1 800 123 456 789</p>
-          <p className="text-gray-600 dark:text-gray-400">+1 800 123 654 987</p>
+          <p className="text-gray-600 dark:text-gray-400">0433 465 522</p>
+          <p className="text-gray-600 dark:text-gray-400">0415 316 044</p>
         </div>
       </div>
     </section>

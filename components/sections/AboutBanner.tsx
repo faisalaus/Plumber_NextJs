@@ -7,7 +7,8 @@ const AboutBanner = () => {
         src="/images/about-banner.webp" // Replace with actual image
         alt="About Us Banner"
         fill
-        objectFit="cover"
+        priority={true}
+        style={{ objectFit: "cover" }}
         className="absolute inset-0"
       />
       {/* Teal Overlay */}

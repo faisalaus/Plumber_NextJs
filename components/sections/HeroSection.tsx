@@ -29,8 +29,8 @@ export default function HeroSection() {
             Ready for <span className="text-teal-600">Help</span> You.
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
-            We are a certified company providing reliable plumbing services for
-            you and your company.
+            We are a certified company providing reliable plumbing services -
+            Specialized Plumbing Services in North Melbourne
           </p>
           <button className="bg-cyan-600 hover:bg-cyan-700 text-white py-3 px-6 rounded-full shadow-lg transition">
             Book Online
@@ -44,7 +44,7 @@ export default function HeroSection() {
             alt="Professional plumber"
             width={500}
             height={500}
-            priority
+            priority={true}
             className="rounded-lg shadow-lg"
           />
         </div>

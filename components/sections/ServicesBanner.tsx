@@ -6,8 +6,9 @@ const ServicesBanner = () => {
       <Image
         src="/images/about-banner.webp" // Replace with actual image
         alt="About Us Banner"
-        layout="fill"
-        objectFit="cover"
+        fill
+        priority={true}
+        style={{ objectFit: "cover" }}
         className="absolute inset-0"
       />
       {/* Teal Overlay */}

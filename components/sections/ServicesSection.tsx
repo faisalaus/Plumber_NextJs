@@ -10,34 +10,40 @@ import Image from "next/image";
 
 const services = [
   {
-    title: "Kitchen Plumbing",
-    description: "Electronic typesetting remains unchanged.",
-    image: "/images/kitchen-plumbing.webp",
-  },
-  {
-    title: "Gas Line Services",
-    description: "Electronic typesetting remains unchanged.",
+    title: "Rough-In Plumbing",
+    description:
+      "We provide expert rough-in plumbing for new constructions, ensuring proper installation before walls and floors are finished.",
     image: "/images/gas-line-services.webp",
   },
   {
-    title: "Water Line Repair",
-    description: "Electronic typesetting remains unchanged.",
-    image: "/images/water-line-repair.webp",
+    title: "Gas Line Services",
+    description:
+      "Safe and reliable gas line installations by our experienced team. Contact us for your gas line needs.",
+    image: "/images/gas-line-services.webp",
   },
   {
-    title: "Bathroom Plumbing",
-    description: "Electronic typesetting remains unchanged.",
-    image: "/images/bathroom.jpg",
+    title: "Drain & Sewer Services",
+    description:
+      "Expert solutions for efficient and effective drain and sewer management to prevent clogs and backups.",
+    image: "/images/gas-line-services.webp",
   },
   {
-    title: "Basement Plumbing",
-    description: "Electronic typesetting remains unchanged.",
-    image: "/images/basement-plumbing.jpg",
+    title: "Roof Plumbing",
+    description:
+      "Professional roof plumbing services for repairs and installations. We ensure effective water drainage and protection.",
+    image: "/images/gas-line-services.webp",
   },
   {
-    title: "Remodeling Service",
-    description: "Electronic typesetting remains unchanged.",
-    image: "/images/remodeling-service.jpg",
+    title: "Home Renovations",
+    description:
+      "Upgrade your kitchen, bathroom, or entire home with our expert renovation plumbing services.",
+    image: "/images/gas-line-services.webp",
+  },
+  {
+    title: "Fit Offs",
+    description:
+      "Quality fit-off plumbing services tailored to your needs, from fixture installations to final finishes.",
+    image: "/images/gas-line-services.webp",
   },
 ];
 
@@ -48,10 +54,11 @@ export default function ServicesSection() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100">
-            Best Service We Offer
+            Best Services We Offer
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400">
-            Learn about our plumbing services that help your home or business.
+            Looking for reliable plumbing services in Melbourne? We offer a
+            range of professional solutions for your home or business.
           </p>
         </div>
 

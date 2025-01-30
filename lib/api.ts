@@ -20,8 +20,7 @@ export const getBlogPostBySlug = async (
   slug: string
 ): Promise<BlogPost | null> => {
   try {
-    const variables = { slug }; // ✅ Ensure slug is passed as an object
-
+    const variables = { slug }; // ✅ Ensure slug is passed correctly
     const data: { postBy: BlogPost } = await fetchGraphQL(
       GET_SINGLE_POST,
       variables

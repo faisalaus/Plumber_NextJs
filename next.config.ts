@@ -3,7 +3,12 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["nhps.com.au"], // Allow images from WordPress
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "nhps.com.au", // WordPress Image Domain
+      },
+    ],
   },
 };
 
