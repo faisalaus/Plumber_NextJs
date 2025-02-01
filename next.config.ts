@@ -1,15 +1,14 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "nhps.com.au", // WordPress Image Domain
+        hostname: "cms.nhps.com.au",
       },
     ],
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
